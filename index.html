@@ -4,8 +4,76 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Solar Stay</title>
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  
+  <header>
+    <h1>Solar Stay</h1>
+  </header>
+  <section class="temperature-input">
+    <h2>What is your desired temperature?</h2>
+    <form>
+      <fieldset>
+        <legend class="sr-only">Temperature</legend>
+      
+        <input type="radio" name="temperature" value="hot" id="temp-hot">
+        <label for="hot">Hot</label>
+        
+        <input type="radio" name="temperature" value="warm" id="temp-warm">
+        <label for="warm">Warm</label>
+        
+        <input type="radio" name="temperature" value="moderate" id="temp-moderate">
+        <label for="moderate">Moderate</label>
+        
+        <input type="radio" name="temperature" value="cold" id="temp-cold">
+        <label for="cold">Cold</label>
+        
+        <input type="radio" name="temperature" value="freezing" id="temp-freezing">
+        <label for="freezing">Freezing Cold</label>
+      
+      </fieldset>
+    </form>
+    <img src="" alt="">
+  </section>
+  <section class="gravity-input">
+    <h2>How much would you like to weigh?</h2>
+    <img src="" alt="">
+    <form>
+      <fieldset>
+        <legend class="sr-only">Gravity</legend>
+    
+        <input type="radio" name="gravity" value="massive" id="gravity-massive">
+        <label for="massive">Massive</label>
+    
+        <input type="radio" name="gravity" value="warm" id="temp-warm">
+        <label for="warm">Warm</label>
+    
+        <input type="radio" name="gravity" value="moderate" id="temp-moderate">
+        <label for="moderate">Moderate</label>
+    
+        <input type="radio" name="gravity" value="cold" id="temp-cold">
+        <label for="cold">Cold</label>
+    
+        <input type="radio" name="gravity" value="freezing" id="temp-freezing">
+        <label for="freezing">Freezing Cold</label>
+    
+      </fieldset>
+    </form>
+  </section>
+  <section class="travel-input">
+    <h2>How far are you willing to travel?</h2>
+    <form action>
+      <fieldset>
+        <input type="range" min="1" max="100" value="1" class="slider" id="distance-finder">
+      </fieldset>
+    </form>
+  </section>
+  <section class="planet-output">
+    <h2>You should travel here:</h2>
+
+  </section>
+  <footer>
+    
+  </footer>
 </body>
 </html>
