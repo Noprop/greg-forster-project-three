@@ -1,0 +1,125 @@
+MVP: 
+
+1. Landing page that is space themed
+2. Ask user questions on where they will want to travel within the solar system
+3. Give output of 1 planet/moon
+
+
+STRETCH:
+
+1. Add more functionality to distance slider. possibly a small solar system diagram with a circular,moveable distance line
+2. Add a fourth characteristic. type? colour? day length?
+3. Give output of up to 3 planet/moons
+
+
+NOTE: list of planets may also include moons
+
+// storage for planets
+
+storage container to hold list of planets
+gravity property is relative to earth's
+
+e.g. 
+const planets = {
+  earth: {
+    name: "Earth",
+    description: "Welcome to Earth! Original home to humans.",
+    temp: "3",
+    gravity: "1"
+    travelTime: "0"
+  },
+  mars: {
+    name: "Mars",
+    description: "Currently in the process of terraforming.",
+    temp: "2",
+    gravity: "0.38"
+    travelTime: "0.72"
+  } 
+}
+
+
+temperature calculation:
+temperature will be a property of type number, but will be outputed to user as:
+
+freezing cold (1)
+cold (2)
+moderate (3)
+warm (4)
+hot (5)
+
+
+travel time calculation:
+travel time will be a property of type number, recorded as hours 
+
+to find travel time use average distance between earth and celestial body and then 
+calculate assuming that our spaceship travels 10% the speed of light with no 
+need for acceleration/deacceleration
+
+average distance between earth and mars: 77 766 000 000 meters 
+divided by
+10% the speed of light: 29 979 245.8 m / s
+= 2594 seconds 
+= 43 minutes
+= 0.72 hours
+
+
+
+// user input
+
+desiredTravelTime will be asked as a 'max travel time' type question
+
+userInput = {
+  desiredTemp: "moderate",
+  desiredGravity: "0.5",
+  desiredTravelTime: "6"
+}
+
+
+
+// output 
+
+output is based on planets/moons and users input
+there will be 1, 2 or 3 picks (NOTE: undecided yet on how many planets will be displayed, this may be a variable amount depending on how many planets there are for a specific user's input)
+
+to calculate the top picks there will be a 'score' for each planet
+finding the #1 pick will be the closest to most desirable:
+
+
+
+
+temperature score will be calculated based on numeral distance between desired temp and planet temp
+e.g. 
+userInput {
+  desiredTemp: "hot"
+}
+all planets with desired temp of hot will be given 5 points, warm planets will be 4 points, etc.
+
+
+
+
+gravity score will be the top 5 closest planets to desired gravity score 
+e.g. userInput {
+  desiredGravity: "0.5"
+}
+using our two planet dataset the closest planet would be Mars and the second would be earth,
+5 and 4 points respectively
+
+
+
+
+time travel score will run on the same logic of calculating the gravity score
+e.g. userInput {
+  desiredTravelTime: "20"
+}
+using our two planet dataset the closest planet would be Mars and the second would be earth,
+5 and 4 points respectively
+
+
+
+
+
+output is calculated based on highest scores
+
+
+
+
