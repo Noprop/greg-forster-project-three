@@ -6,35 +6,35 @@ const planets = [
     description: "Mercury is the smallest and innermost planet of the solar system. The temperature on the surface of Mercury can reach as hot as 425 C during the daytime and as low as -173 C at night.",
     temp: 5,
     gravity: 3.70,
-    travelTime: 0.077
+    travelDistance: 0.077
   },
   venus = {
     name: "Venus",
     description: "Venus is the second planet from the Sun. Cities floating on Venus's clouds is currently undergoing R&D.",
     temp: 5,
     gravity: 8.87,
-    travelTime: 0.042
+    travelDistance: 0.042
   },
   earth = {
     name: "Earth",
     description: "Welcome to Earth! Original home to humans.",
     temp: 4,
     gravity: 1,
-    travelTime: 0
+    travelDistance: 0
   },
   mars = {
     name: "Mars",
     description: "Mars is now the second home to humans and is currently being terraformed.",
     temp: 3,
     gravity: 0.38,
-    travelTime: 0.78340
+    travelDistance: 0.225
   },
   jupiter = {
     name: "Jupiter",
     description: "Jupiter is an absolute unit, being the largest in the solar system. It has a mass of one-thousandth (1/1000) that of the sun, but two-and-a-half times that of all the other planets in the solar system combined.",
     temp: 3,
     gravity: 24.79,
-    travelTime: 0.628730,
+    travelDistance: 0.628730,
     source: "https://en.wikipedia.org/wiki/Jupiter"
   },
   saturn = {
@@ -42,14 +42,14 @@ const planets = [
     description: "Saturn is a gas giant and is the second largest planent in the solar system, following Jupiter. Saturn has an average density of only one-eighth the average density of Earth.",
     temp: 2,
     gravity: 10.44,
-    travelTime: 1.275
+    travelDistance: 1.275
   },
   uranus = {
     name: "Uranus",
     description: "Uranus is the third largest planet of the solar system. It is often referred to as an 'ice giant' planet. Uranus hits the coldest temperatures of any planet.",
     temp: 1,
     gravity: 8.87,
-    travelTime: 2.723950,
+    travelDistance: 2.723950,
     source: "https://space-facts.com/uranus/"
   },
   neptune = {
@@ -57,14 +57,14 @@ const planets = [
     description: "Neptune is the last planet within the solar system. It is 17 times the mass of Earth and is the densest giant planet.",
     temp: 1,
     gravity: 11.15,
-    travelTime: 4.3514
+    travelDistance: 4.3514
   },
   pluto = {
     name: "Pluto",
     description: "Pluto is a dwarf planet found within the Kuiper belt, a ring of bodies beyond the orbit of Neptune. Pluto was the first and largest Kuiper belt object to be discovered in 1930. In 2006 it was demoted to the life of a dwarf planet.",
     temp: 1,
     gravity: 0.62,
-    travelTime: 5.1794,
+    travelDistance: 5.1794,
     source: "https://solarsystem.nasa.gov/planets/dwarf-planets/pluto/in-depth/"
   },
   europa = {
@@ -72,28 +72,28 @@ const planets = [
     description: "Europa is a moon in orbit of Jupiter. It is the sixth-closest to the planet out of all the 79 moons of Jupiter. Europa has a possibility of harboring life in its under-ice ocean, perhaps in an evironment closely resembling Earth's deep-ocean hydrothermal vents.",
     temp: 2,
     gravity: 1.315,
-    travelTime: 0.6283
+    travelDistance: 0.628730
   },
   titan = {
     name: "Titan",
     description: "Titan is the largest moon of Saturn. Titan is the only moon in the solar system to have a dense atmosphere. It is also the only known celestial body, aside from Earth, to have evidence of stable bodies of surface liquid.",
     temp: 1,
     gravity: 1.352,
-    travelTime: 1.5485
+    travelDistance: 1.275
   },
   ganymede = {
     name: "Ganymede",
     description: "Ganymede is a moon of Jupiter. It is the largest and most massive of the solar system's moons. It is also the only moon within the solar system to have a magnetosphere.",
     temp: 1,
     gravity: 1.428,
-    travelTime: 0.6283
+    travelDistance: 0.628730
   },
   enceladus = {
     name: "Enceladus",
     description: "Enceladus is the sixth-largest moon of Saturn. It is about 500 kilometers in diameter. Ever since Enceladus was seen shooting plumes of water vapor and ice from cracks in it's frozen crust more than a decade ago scientists have been pondering the possibility of life deep within it's oceans.",
     temp: 1,
     gravity: 0.113,
-    travelTime: 1.272,
+    travelDistance: 1.275,
     source: "https://www.latimes.com/science/sciencenow/la-sci-sn-cassini-saturn-enceladus-20170413-story.html"
   },
   io = {
@@ -101,21 +101,21 @@ const planets = [
     description: "Io is the third-largest of the four Galilean moons of planet Jupiter. It has the highest density for a moon in the solar system, yet is only the fourth-largest.",
     temp: 3,
     gravity: 1.796,
-    travelTime: 24.79
+    travelDistance: 0.628730
   },
   triton = {
     name: "Triton",
     description: "Triton is the largest moon of Neptune's thirteen moons. It was the first discovered in 1846. Triton is one of the four bodies in the solar system to be volcanically active at present.",
     temp: 1,
     gravity: 0.779,
-    travelTime: 4.3514
+    travelDistance: 4.3514
   },
   phobos = {
     name: "Phobos",
     description: "Phobos is the larger of two moons of Mars. It has a radius of only 11.3 kilometers.",
     temp: 1,
     gravity: 0.0057,
-    travelTime: 0.78340
+    travelDistance: 0.225
   }
 ]
 
@@ -125,7 +125,7 @@ $(function() {
 
     let desiredTemp = $('input[name=temperature]:checked').val();
     const gravity = $('input[name=gravity]:checked').val();
-    const distance = $('input[name=distance]').val();
+    const distance = ($('input[name=distance]').val()) * 2;
 
     // console.log('temp: ' + desiredTemp);
     // console.log('weight: ' + gravity);
@@ -145,6 +145,7 @@ $(function() {
     let results = [];
     let tempScore = 0;
 
+    // calculate temperature score
     planets.forEach(item => {
       // find difference between desired temp and actual temp
       tempScore = desiredTemp - item.temp;
@@ -158,6 +159,7 @@ $(function() {
       // console.log(`Name: ${item.name}, scoreb4grav: ${tempScore}`)
     })
 
+    // calculate gravity score
     if (gravity === "bouncy") {
       planets.forEach((item, index) => {
         if (item.gravity < 0.5) { // less than 0.5 is five points
@@ -212,6 +214,60 @@ $(function() {
       })
     }
 
-    console.log(results);
+    // travelArr to hold travelObject that all have two properties: index and travel value
+    let travelArr = [];
+    let travel = 0;
+
+    // recall that the "planets" array holds travelDistance as a value of distance in billion/km
+    // the below portion of code is used to calculate the time it would take 
+    // to travel from earth to x planet travelling at 5% the speed of light, no de/acceleration
+    planets.forEach((item, index) => {
+      travel = item.travelDistance * 1000000000; 
+      travel = travel / 14989.6229; // divide by km/s (5% the speed of light)
+      travel = travel / 60; // convert to minutes
+      travel = travel / 60; // convert to hours
+
+      travelArr.push({
+        index: index,
+        travel: Math.round(travel)
+      });
+    });
+
+    // comparing and sorting in order of travel time
+    compare = (a, b) => {
+      a = a.travel;
+      b = b.travel;
+      if (a < b) { // .sort method needs a return value of a negative number to know it's in place
+        return -1;
+      } else if (a > b) { // not in place yet
+        return 1;
+      } else { // same values
+        return 0;
+      }
+    }
+    travelArr.sort(compare);
+
+
+    // calculate travel score
+    // NOTE that the slider value can be up to 53, which is exactly half of pluto's travel distance
+    // distance declaration above is * 2 so it = pluto's travel distance
+
+    for (let i = 0; i < travelArr.length; i++) {
+      if (travelArr[i].travel === distance) {
+        if (!targetAcquired) { // this is in case of duplicates, aka moons
+          const targetAcquired = travelArr[i][index];
+        }
+        results[travelArr[i].index] += 5;
+      } else if (travelArr[i].travel > distance) {
+        break;
+      }
+    };
+
+
+    
+    
+
+    console.log(travelArr);
+    // console.log(results);
   })
 })
