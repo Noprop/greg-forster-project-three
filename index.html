@@ -64,16 +64,23 @@
     <h2>How far are you willing to travel?</h2>
     <form action="">
       <fieldset>
-        <input type="range" min="1" max="100" value="1" class="slider" id="distance-finder">
+        <label for="distance-finder" class="sr-only"></label>
+        <input type="range" min="1" max="100" value="1" class="slider" id="distance-finder" name="distance">
       </fieldset>
     </form>
   </section>
   <section class="planet-output">
-    <h2>You should travel here:</h2>
-
+    <section class="get-results">
+      <a href="" class="get-results-button">Find Your Destination</a>
+    </section>
+    <section class="display-results">
+      <h2>You should travel here:</h2>
+    </section>
   </section>
   <footer>
 
   </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
