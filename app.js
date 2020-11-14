@@ -12,6 +12,7 @@ const planets = [
     name: "Venus",
     description: "Venus is the second planet from the Sun. Cities floating on Venus's clouds is currently undergoing R&D.",
     temp: 5,
+    gravity: 8.87,
     travelTime: 0.042
   },
   earth = {
@@ -101,6 +102,19 @@ const planets = [
     temp: 3,
     gravity: 1.796,
     travelTime: 24.79
+  },
+  triton = {
+    name: "Triton",
+    description: "Triton is the largest moon of Neptune's thirteen moons. It was the first discovered in 1846. Triton is one of the four bodies in the solar system to be volcanically active at present.",
+    temp: 1,
+    gravity: 0.779,
+    travelTime: 4.3514
+  },
+  phobos = {
+    name: "Phobos",
+    description: "Phobos is the larger of two moons of Mars. It has a radius of only 11.3 kilometers.",
+    temp: 1,
+    gravity: 0.0057,
   }
 ]
 
@@ -129,18 +143,63 @@ $(function() {
     }
     let results = [];
     let tempScore = 0;
-    console.log("Desired temp: " + desiredTemp);
 
-    planets.forEach((item, index) => {
+    planets.forEach(item => {
+      // find difference between desired temp and actual temp
       tempScore = desiredTemp - item.temp;
+      // some may go below 0, if this is the case flip the negative to a positive
       if (tempScore < 0) {
         tempScore *= -1;
       }
+      // add 1 score so that it's between 1-5 instead of 0-4
       tempScore++;
-      
+
       results.push(tempScore);
-      console.log(results[index])
     })
-    console.log(results);
+
+
+    // gravity calcs
+    if (gravity === "bouncy") {
+      planets.forEach((item, index) => {
+        if (item.gravity < 0.5) {
+          results[index] += 5;
+        } else if (item.gravity < 2) {
+          results[index] += 3;
+        } else if (item.gravity < 5) {
+          results[index] += 1;
+        }
+      })
+    } else if (gravity === "light") {
+      planets.forEach((item, index) => {
+        if (item.gravity > 0.5 && item.gravity < 1.5) {
+          results[index] += 5;
+        } else if (item.gravity < 5) {
+          results[index] += 3;
+        } else if (item.gravity < 15) {
+          results[index] += 1;
+        }
+      })
+    } else if (gravity === "normal") {
+      planets.forEach((item, index) => {
+        if (item.gravity > 0.75 && item.gravity < 3) {
+          results[index] += 5;
+        } else if (item.gravity < 8) {
+          results[index] += 3;
+        } else if (item.gravity < 25) {
+          results[index] += 1;
+        }
+      })
+    } else if (gravity === "heavy") {
+      planets.forEach((item, index) => {
+        if (item.gravity > 3 && item.gravity < 10) {
+          results[index] += 5;
+        } else if (item.gravity < 20) {
+          results[index] += 3;
+        } else if (item.gravity < 40) {
+          results 
+        }
+      })
+    }
+
   })
 })
