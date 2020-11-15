@@ -247,27 +247,78 @@ $(function() {
     }
     travelArr.sort(compare);
 
+    // test 
+    console.log(travelArr);
+    console.log(results);
+    console.log(distance);
+
 
     // calculate travel score
     // NOTE that the slider value can be up to 53, which is exactly half of pluto's travel distance
     // distance declaration above is * 2 so it = pluto's travel distance
+    let targetAcquired = 0;
 
+    // for loop to determine what planet (and the respective moons) lines up with the user's slider
+    // the for loop is iterating through the travelArr and using .travel property on each planet
     for (let i = 0; i < travelArr.length; i++) {
-      if (travelArr[i].travel === distance) {
-        if (!targetAcquired) { // this is in case of duplicates, aka moons
-          const targetAcquired = travelArr[i][index];
+      // if distance of body is equal to user's distance input add 5 points, this can happen multiple times in case of moons
+      if (distance === travelArr[i].travel) {
+        if (targetAcquired === 0) { // set value if we have not yet found a planet, made in mind for moons
+          targetAcquired = i;
         }
-        results[travelArr[i].index] += 5;
-      } else if (travelArr[i].travel > distance) {
+        results[travelArr[i].index] += 5; 
+        travelArr[i].tempScore = 5;
+
+      } else if (distance < travelArr[i].travel) { // as soon as user's input is smaller than the indexed
+        if (targetAcquired === 0) { // run this if we have not yet found a planet
+          results[travelArr[i - 1].index] += 5;
+          travelArr[i - 1].tempScore = 5;
+
+          for (let k = i - 1; k >= 0; k--) { // this is specifically made for moons
+            if (travelArr[k].travel === travelArr[k - 1].travel) {
+              results[travelArr[k - 1].index] += 5;
+              travelArr[k - 1].tempScore = 5;
+              
+            } else {
+              targetAcquired = k;
+              break;
+            }
+          }
+        }
+        for (let l = i; l <= travelArr.length; l++) {
+          if (travelArr[l + 1] && (travelArr[l].travel === travelArr[l + 1].travel)) {
+            results[travelArr[l + 1].index] += 2;
+            travelArr[l + 1].tempScore = 2;
+
+          } else {
+            break;
+          }
+        }
+        
+        results[travelArr[i].index] += 2;
+        travelArr[i].tempScore = 2;
+
         break;
       }
     };
 
+    console.log(targetAcquired);
+
+    results[travelArr[targetAcquired - 1].index] += 4;
+    travelArr[targetAcquired - 1].tempScore = 4;
+
+    for (let j = targetAcquired - 1; j >= 0; j--) {
+      results[travelArr[j].index] += 3;
+
+      travelArr[j].tempScore = 3;
+
+      console.log('j value: ' + j);
+    }
 
     
     
-
+    console.log('distance: ' + distance);
     console.log(travelArr);
-    // console.log(results);
+    console.log(results);
   })
 })
