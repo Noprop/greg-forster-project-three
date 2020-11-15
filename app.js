@@ -246,11 +246,7 @@ $(function() {
       }
     }
     travelArr.sort(compare);
-
-    // test 
-    console.log(travelArr);
-    console.log(results);
-    console.log(distance);
+    // console.log(distance);
 
 
     // calculate travel score
@@ -267,18 +263,15 @@ $(function() {
           targetAcquired = i;
         }
         results[travelArr[i].index] += 5; 
-        travelArr[i].tempScore = 5;
-
+        // travelArr[i].tempScore = 5;
       } else if (distance < travelArr[i].travel) { // as soon as user's input is smaller than the indexed
         if (targetAcquired === 0) { // run this if we have not yet found a planet
           results[travelArr[i - 1].index] += 5;
-          travelArr[i - 1].tempScore = 5;
-
+          // travelArr[i - 1].tempScore = 5;
           for (let k = i - 1; k >= 0; k--) { // this is specifically made for moons
             if (travelArr[k].travel === travelArr[k - 1].travel) {
               results[travelArr[k - 1].index] += 5;
-              travelArr[k - 1].tempScore = 5;
-              
+              // travelArr[k - 1].tempScore = 5;
             } else {
               targetAcquired = k;
               break;
@@ -288,37 +281,43 @@ $(function() {
         for (let l = i; l <= travelArr.length; l++) {
           if (travelArr[l + 1] && (travelArr[l].travel === travelArr[l + 1].travel)) {
             results[travelArr[l + 1].index] += 2;
-            travelArr[l + 1].tempScore = 2;
-
+            // travelArr[l + 1].tempScore = 2;
           } else {
             break;
           }
         }
-        
         results[travelArr[i].index] += 2;
-        travelArr[i].tempScore = 2;
-
+        // travelArr[i].tempScore = 2;
         break;
       }
     };
 
-    console.log(targetAcquired);
-
     results[travelArr[targetAcquired - 1].index] += 4;
-    travelArr[targetAcquired - 1].tempScore = 4;
+    // travelArr[targetAcquired - 1].tempScore = 4;
 
     for (let j = targetAcquired - 1; j >= 0; j--) {
       results[travelArr[j].index] += 3;
-
-      travelArr[j].tempScore = 3;
-
-      console.log('j value: ' + j);
+      // travelArr[j].tempScore = 3;
     }
 
-    
-    
-    console.log('distance: ' + distance);
-    console.log(travelArr);
-    console.log(results);
+    // display results 
+    let best = 0;
+    let chosen = 0;
+    results.forEach((item, index) => {
+      if (item > best) {
+        best = item;
+        chosen = index;
+      }
+    })
+    chosen = planets[chosen];
+    const displayItem = `
+      <h2>You should travel here:</h2>
+      <h3>${chosen.name}</h3>
+    `
+    $('.display-results').html(displayItem);
+  
+    // console.log(travelArr);
+    // console.log(planets);
+    // console.log(results);
   })
 })
