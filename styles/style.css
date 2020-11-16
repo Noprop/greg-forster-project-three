@@ -270,73 +270,6 @@ fieldset {
   margin: 0 auto;
 }
 
-header {
-  text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-header h1 {
-  font-size: 12rem;
-  margin: 0;
-  color: #66fcf1;
-}
-
-header h2 {
-  font-size: 3rem;
-  max-width: 60%;
-  margin: 40px auto 65px auto;
-}
-
-header a {
-  text-decoration: none;
-  margin-top: 100px;
-  padding: 15px 30px;
-  border: 2px solid #45a29e;
-  color: #c5c6c7;
-  font-size: 2rem;
-  border-radius: 4px;
-}
-
-header a:hover {
-  border-color: #c5c6c7;
-  background-color: #45a29e;
-  color: black;
-}
-
-main section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-main section .wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-main section .wrapper h2 {
-  font-size: 4rem;
-  margin-bottom: 25px;
-}
-
-main section .wrapper form, main section .wrapper img {
-  width: 50%;
-}
-
 main section .wrapper input[type=range] {
   -webkit-appearance: none;
   width: 100%;
@@ -404,16 +337,6 @@ main section .wrapper input[type=range]::-ms-track {
   background-color: #45a29e;
 }
 
-main .temperature-input, main .travel-input {
-  background-color: #eeeeee;
-  color: #1f2833;
-}
-
-main .travel-input .wrapper form {
-  width: 90%;
-  margin-top: 50px;
-}
-
 main .wrapper .container {
   font-size: 2.4rem;
   display: block;
@@ -455,4 +378,143 @@ main .wrapper .container .newRadio:after {
 
 main .wrapper .container input:checked ~ .newRadio:after {
   display: block;
+}
+
+header {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header h1 {
+  font-size: 12rem;
+  margin: 0;
+  color: #66fcf1;
+}
+
+header h2 {
+  font-size: 3rem;
+  max-width: 60%;
+  margin: 40px auto 65px auto;
+}
+
+header a {
+  text-decoration: none;
+  margin-top: 100px;
+  padding: 15px 30px;
+  border: 2px solid #45a29e;
+  color: #c5c6c7;
+  font-size: 2rem;
+  border-radius: 4px;
+}
+
+header a:hover {
+  border-color: #c5c6c7;
+  background-color: #45a29e;
+  color: black;
+}
+
+main section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main section .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main section .wrapper h2 {
+  font-size: 4rem;
+  margin-bottom: 25px;
+}
+
+main section .wrapper form, main section .wrapper img {
+  width: 50%;
+}
+
+main .temperature-input, main .travel-input {
+  background-color: #eeeeee;
+  color: #1f2833;
+}
+
+main .travel-input .wrapper form {
+  width: 90%;
+  margin-top: 150px;
+  position: relative;
+}
+
+main .travel-input .wrapper form .rangePlanet {
+  height: 64px;
+  width: 64px;
+  margin-bottom: 40px;
+  display: inline-block;
+  position: absolute;
+  top: -100px;
+  opacity: 0.2;
+}
+
+main .travel-input .wrapper form .vis {
+  opacity: 1;
+}
+
+main .travel-input .wrapper form .p1 {
+  left: -80px;
+  background-image: url("../assets/planet-earth.png");
+  top: -32px;
+}
+
+main .travel-input .wrapper form .p2 {
+  left: 1.04%;
+  background-image: url("../assets/venus.png");
+}
+
+main .travel-input .wrapper form .p3 {
+  left: 1.04%;
+  display: none;
+}
+
+main .travel-input .wrapper form .p4 {
+  left: 4.16%;
+  background-image: url("../assets/mars.png");
+  top: 50px;
+}
+
+main .travel-input .wrapper form .p5 {
+  left: 12.5%;
+  background-image: url("../assets/jupiter.png");
+}
+
+main .travel-input .wrapper form .p6 {
+  left: 25%;
+  background-image: url("../assets/saturn.png");
+}
+
+main .travel-input .wrapper form .p7 {
+  left: 52.08%;
+  background-image: url("../assets/uranus.png");
+}
+
+main .travel-input .wrapper form .p8 {
+  left: calc(84.375% - 64px);
+  background-image: url("../assets/neptune.png");
+}
+
+main .travel-input .wrapper form .p9 {
+  left: calc(100% - 64px);
+  background-image: url("../assets/pluto.png");
 }

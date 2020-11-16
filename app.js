@@ -140,24 +140,25 @@ $(function() {
   $('input[type=range]').on("input", e => { // I use a lot of chaining if statements to ensure it's not a waste of resources (aka brute forcing), there are likely more efficient methods  
     n = e.target.value;
     if (n <= 6) {
-      if (n === 1) { // venus, merc
-
-      } else if (n === 2) { // mars
-
-      } else if (n === 6) { // jupiter
-
+      if (n == 2) { // venus, merc
+        $('.p2').toggleClass('vis');
+        $('.p3').toggleClass('vis');
+      } else if (n == 4) { // mars
+        $('.p4').toggleClass('vis');
+      } else if (n == 6) { // jupiter
+        $('.p5').toggleClass('vis');
       }
     } else if (n <= 25) {
-      if (n === 12) { // saturn
-
-      } else if (n === 25) { // uranus
-
+      if (n == 12) { // saturn
+        $('.p6').toggleClass('vis');
+      } else if (n == 25) { // uranus
+        $('.p7').toggleClass('vis');
       }
     } else if (n <= 48) {
-      if (n === 41) { // neptune
-
-      } else if (n === 48) { // pluto
-
+      if (n == 41) { // neptune
+        $('.p8').toggleClass('vis');
+      } else if (n == 47) { // pluto
+        $('.p9').toggleClass('vis');
       }
     } 
   })

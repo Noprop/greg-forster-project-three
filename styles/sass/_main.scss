@@ -15,71 +15,6 @@ main {
       form, img {
         width: 50%;
       }
-      input[type=range] {
-        // with the help of this! https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
-        // below section is to create invisible or unstyled range inputs in all browsers
-        -webkit-appearance: none;
-        width: 100%;
-        background: transparent;
-
-        &::-webkit-slider-thumb {
-          -webkit-appearance: none;
-        }  
-        &:focus {
-          outline: none;
-        }
-        &::-ms-track {
-          width: 100%;
-          cursor: pointer;
-
-          background: transparent;
-          border-color: transparent;
-          color: transparent;
-        }
-
-        // below section is to create spaceship thumb (that's the slidy thing!)
-        &::-webkit-slider-thumb {
-          background: url('../assets/spaceship.png');
-          height: 64px;
-          width: 64px;
-          cursor: pointer;
-        }
-        &::-moz-range-thumb {
-          background: url('../assets/spaceship.png');
-          height: 64px;
-          width: 64px;
-          border: 0;
-          cursor: pointer;
-        }
-        &::-ms-thumb {
-          background: url('../assets/spaceship.png');
-          height: 64px;
-          width: 64px;
-          cursor: pointer;
-        }
-
-        // styling the track 
-        &::-webkit-slider-runnable-track {
-          width: calc(100% - 64px);
-          height: 20px;
-          cursor: pointer;
-          background-color: $main-accent;
-        }
-        &::-moz-range-track {
-          width: calc(100% - 64px);
-          height: 12px;
-          border-radius: 8px;
-          cursor: pointer;
-          background-color: $main-accent;
-          border: 3px solid $text-on-light;
-        }
-        &::-ms-track {
-          width: calc(100% - 64px);
-          height: 20px;
-          cursor: pointer;
-          background-color: $main-accent;
-        }
-      }
     }
   }
   .temperature-input, .travel-input {
@@ -88,57 +23,61 @@ main {
   }
   .travel-input .wrapper form {
     width: 90%;
-    margin-top: 50px;
-  }
-}
+    margin-top: 150px;
+    position: relative;
 
-// styles for custom radio buttons
-// source: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_radio
-main {
-  .wrapper {
-    .container {
-        font-size: 2.4rem;
-        display: block;
-        position: relative;
-        padding-left: 35px;
-        margin-bottom: 12px;
-        cursor: pointer;
-        
-        // hide the browser's default radio button
-        input {
-          position: absolute;
-          opacity: 0;
-          cursor: pointer;
-        }
-      
-        .newRadio {
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 27px;
-          width: 27px;
-          // background-color: $accent-text;
-          border: 4px solid $text-on-light;
-          border-radius: 50%;
-        }
+    .rangePlanet {
+      height: 64px;
+      width: 64px;
+      margin-bottom: 40px;
+      // background-color: goldenrod;
+      display: inline-block;
+      position: absolute;
+      top: -100px;
+      opacity: 0.2;
+    }
 
-        &:hover .newRadio {
-          background-color: $main-accent;
-        }
+    .vis {
+      opacity: 1;
+    }
 
-        input:checked ~ .newRadio {
-          background-color: $main-accent;
-        }
-
-        .newRadio:after {
-          content: "";
-          position: absolute;
-          display: none;
-        }
-
-        input:checked ~ .newRadio:after {
-          display: block;
-        }
-      }
+    .p1 {
+      left: -80px;
+      background-image: url('../assets/planet-earth.png');
+      top: -32px;
+    }
+    .p2 {
+      left: 1.04%;
+      background-image: url('../assets/venus.png');
+    }
+    .p3 {
+      left: 1.04%;
+      display: none;
+    }
+    .p4 {
+      left: 4.16%;
+      background-image: url('../assets/mars.png');
+      top: 50px;
+    }
+    .p5 {
+      left: 12.5%;
+      background-image: url('../assets/jupiter.png');
+    }
+    .p6 {
+      left: 25%;
+      background-image: url('../assets/saturn.png');
+    }
+    .p7 {
+      left: 52.08%;
+      background-image: url('../assets/uranus.png');
+    }
+    .p8 {
+      left: calc(84.375% - 64px);
+      background-image: url('../assets/neptune.png');
+    }
+    .p9 {
+      left: calc(100% - 64px);
+      background-image: url('../assets/pluto.png');
+    }
   }
 }
