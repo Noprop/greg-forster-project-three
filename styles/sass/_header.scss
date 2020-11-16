@@ -5,7 +5,7 @@ header {
   h1 {
     font-size: 12rem;
     margin: 0;
-    color: #66FCF1;
+    color: $main;
   }
   h2 {
     font-size: 3rem;
@@ -16,16 +16,14 @@ header {
     text-decoration: none;
     margin-top: 100px;
     padding: 15px 30px;
-    border: 2px solid #45a29e;
-    // color: #C5C6C7;
-    color: #eee;
-    font-size: 1.8rem;
+    border: 2px solid $main-accent;
+    color: $accent-text;
+    font-size: 2rem;
     border-radius: 4px;
 
     &:hover {
-      border-color: #C5C6C7;
+      border-color: $accent-text;
       background-color: #45a29e;
-      // color: #0B0C10;
       color: black;
     }
   }
