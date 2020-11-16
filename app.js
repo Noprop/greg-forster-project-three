@@ -117,6 +117,17 @@ $(function() {
       travelDistance: 0.225
     }
   ]
+  const planetDisplay = [ // used for when user changes range input
+    0, // earth
+    0.5, // venus
+    0.5, // mercury
+    2, // mars
+    6, // jupiter
+    12, // saturn
+    25, // uranus
+    40.5, // neptune
+    48 // pluto (yes pluto is a dwarf planet, but they're fun)
+  ]
 
   $('.takeQuiz').on('click', e => {
     e.preventDefault();
@@ -124,6 +135,32 @@ $(function() {
       scrollTop: $('#temperature-input').offset().top    
     }, 1000);
   });
+
+  let n = 0;
+  $('input[type=range]').on("input", e => { // I use a lot of chaining if statements to ensure it's not a waste of resources (aka brute forcing), there are likely more efficient methods  
+    n = e.target.value;
+    if (n <= 6) {
+      if (n === 1) { // venus, merc
+
+      } else if (n === 2) { // mars
+
+      } else if (n === 6) { // jupiter
+
+      }
+    } else if (n <= 25) {
+      if (n === 12) { // saturn
+
+      } else if (n === 25) { // uranus
+
+      }
+    } else if (n <= 48) {
+      if (n === 41) { // neptune
+
+      } else if (n === 48) { // pluto
+
+      }
+    } 
+  })
 
   $('.get-results-button').on('click', (e) => {
     e.preventDefault();
