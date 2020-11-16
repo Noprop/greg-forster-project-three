@@ -4,79 +4,102 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Solar Stay</title>
-  <link rel="stylesheet" href="./styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Trispace:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
   <header>
-    <h1>Solar Stay</h1>
+    <div class="wrapper">
+      <h1>Solar Stay</h1>
+      <h2>Ever thought of travelling off world? Try our quiz to find your dream planet!</h2>
+      <a href="" class="takeQuiz">Take Me There</a>
+    </div>
   </header>
-  <section class="temperature-input">
-    <h2>What is your desired temperature?</h2>
-    <form action="">
-      <fieldset>
-        <legend class="sr-only">Temperature</legend>
-      
-        <input type="radio" name="temperature" value="hot" id="temp-hot">
-        <label for="hot">Hot</label>
-        
-        <input type="radio" name="temperature" value="warm" id="temp-warm">
-        <label for="warm">Warm</label>
-        
-        <input type="radio" name="temperature" value="moderate" id="temp-moderate">
-        <label for="moderate">Moderate</label>
-        
-        <input type="radio" name="temperature" value="cold" id="temp-cold">
-        <label for="cold">Cold</label>
-        
-        <input type="radio" name="temperature" value="freezing" id="temp-freezing">
-        <label for="freezing">Freezing Cold</label>
-      
-      </fieldset>
-    </form>
-    <img src="" alt="">
-  </section>
-  <section class="gravity-input">
-    <h2>How much would you like to weigh?</h2>
-    <img src="" alt="">
-    <form action="">
-      <fieldset>
-        <legend class="sr-only">Gravity</legend>
-    
-        <input type="radio" name="gravity" value="massive" id="gravity-massive">
-        <label for="massive">Massive</label>
-    
-        <input type="radio" name="gravity" value="heavy" id="gravity-heavy">
-        <label for="heavy">Heavy</label>
-    
-        <input type="radio" name="gravity" value="normal" id="gravity-normal">
-        <label for="normal">Normal</label>
-    
-        <input type="radio" name="gravity" value="light" id="gravity-light">
-        <label for="light">Light</label>
-    
-        <input type="radio" name="gravity" value="bouncy" id="gravity-bouncy">
-        <label for="bouncy">Bouncy</label>
-    
-      </fieldset>
-    </form>
-  </section>
-  <section class="travel-input">
-    <h2>How far are you willing to travel?</h2>
-    <form action="">
-      <fieldset>
-        <label for="distance-finder" class="sr-only"></label>
-        <input type="range" min="1" max="48" value="1" class="slider" id="distance-finder" name="distance">
-      </fieldset>
-    </form>
-  </section>
-  <section class="planet-output">
-    <section class="get-results">
-      <a href="" class="get-results-button">Find Your Destination</a>
+  <main>
+    <section class="temperature-input" id="temperature-input">
+      <div class="wrapper">
+        <h2>What is your desired temperature?</h2>
+        <form action="">
+          <fieldset>
+            <legend class="sr-only">Temperature</legend>
+            <label class="container">Hot
+              <input type="radio" name="temperature" value="hot" id="temp-hot">
+              <span class="newRadio"></span>
+            </label>
+            <label class="container">Warm
+              <input type="radio" name="temperature" value="warm" id="temp-warm">
+              <span class="newRadio"></span>
+            </label>
+            <label class="container">Moderate
+              <input type="radio" name="temperature" value="moderate" id="temp-moderate">
+              <span class="newRadio"></span>
+            </label>
+            <label class="container">Cold
+              <input type="radio" name="temperature" value="cold" id="temp-cold">
+              <span class="newRadio"></span>
+            </label>
+            <label class="container">Freezing Cold
+              <input type="radio" name="temperature" value="freezing" id="temp-freezing">
+              <span class="newRadio"></span>
+            </label>
+          </fieldset>
+        </form>
+        <img src="" alt="">
+      </div>
     </section>
-    <section class="display-results">
-      <h2>You should travel here:</h2>
+    <section class="gravity-input">
+      <div class="wrapper">
+        <h2>How much would you like to weigh?</h2>
+        <img src="" alt="">
+        <form action="">
+          <fieldset>
+            <legend class="sr-only">Gravity</legend>
+            <label class="container">Massive
+              <input type="radio" name="gravity" value="massive" id="gravity-massive">
+              <span class="newRadio"></span>
+            </label>
+            <label class="container">Heavy
+              <input type="radio" name="gravity" value="heavy" id="gravity-heavy">
+              <span class="newRadio"></span>
+            </label>
+            <label class="container">Normal
+              <input type="radio" name="gravity" value="normal" id="gravity-normal">
+              <span class="newRadio"></span>
+            </label>
+            <label class="container">Light
+              <input type="radio" name="gravity" value="light" id="gravity-light">
+              <span class="newRadio"></span>
+            </label>
+            <label class="container">Bouncy
+              <input type="radio" name="gravity" value="bouncy" id="gravity-bouncy">
+              <span class="newRadio"></span>
+            </label>
+          </fieldset>
+        </form>
+      </div>
     </section>
-  </section>
+    <section class="travel-input">
+      <div class="wrapper">
+        <h2>How far are you willing to travel?</h2>
+        <form action="">
+          <fieldset>
+            <label for="distance-finder" class="sr-only"></label>
+            <input type="range" min="1" max="48" value="1" class="slider" id="distance-finder" name="distance">
+          </fieldset>
+        </form>
+      </div>
+    </section>
+    <section class="planet-output">
+      <div class="wrapper">
+        <section class="get-results">
+          <a href="" class="get-results-button">Find Your Destination</a>
+        </section>
+        <section class="display-results">
+          <h2>You should travel here:</h2>
+        </section>
+      </div>
+    </section>
+  </main>
   <footer>
 
   </footer>

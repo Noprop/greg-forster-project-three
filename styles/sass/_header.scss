@@ -1,0 +1,32 @@
+header {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  h1 {
+    font-size: 12rem;
+    margin: 0;
+    color: #66FCF1;
+  }
+  h2 {
+    font-size: 3rem;
+    max-width: 60%;
+    margin: 40px auto 65px auto;
+  }
+  a {
+    text-decoration: none;
+    margin-top: 100px;
+    padding: 15px 30px;
+    border: 2px solid #45a29e;
+    // color: #C5C6C7;
+    color: #eee;
+    font-size: 1.8rem;
+    border-radius: 4px;
+
+    &:hover {
+      border-color: #C5C6C7;
+      background-color: #45a29e;
+      // color: #0B0C10;
+      color: black;
+    }
+  }
+}
