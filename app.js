@@ -89,7 +89,7 @@ $(function() {
     },
     enceladus = {
       name: "Enceladus",
-      description: "Enceladus is the sixth-largest moon of Saturn. It is about 500 kilometers in diameter. Ever since Enceladus was seen shooting plumes of water vapor and ice from cracks in it's frozen crust more than a decade ago scientists have been pondering the possibility of life deep within it's oceans.",
+      description: "Enceladus is the sixth-largest moon of Saturn. It is about 500 kilometers in diameter. Enceladus has been spotted shooting water vapor and ice from cracks in it's frozen crust for many years now. Scientists have since pondered the possibilty of life deep underneath it's crust.",
       temp: 1,
       gravity: 0.113,
       travelDistance: 1.275,
@@ -97,17 +97,18 @@ $(function() {
     },
     io = {
       name: "Io",
-      description: "Io is the third-largest of the four Galilean moons of planet Jupiter. It has the highest density for a moon in the solar system, yet is only the fourth-largest.",
+      description: "Io is the third-largest of the four Galilean moons of planet Jupiter. It has the highest density for a moon in the solar system.",
       temp: 3,
       gravity: 1.796,
       travelDistance: 0.628730
     },
     triton = {
       name: "Triton",
-      description: "Triton is the largest moon of Neptune's thirteen moons. It was the first discovered in 1846. Triton is one of the four bodies in the solar system to be volcanically active at present.",
+      description: "Triton is the largest moon of Neptune's thirteen moons. It was the first to be discovered, in 1846. Triton, Io and Venus are the only bodies in the solar system besides Earth that are known to be volcanically active at the present time.",
       temp: 1,
       gravity: 0.779,
-      travelDistance: 4.3514
+      travelDistance: 4.3514,
+      source: "https://solarsystem.nasa.gov/moons/neptune-moons/triton/in-depth/"
     },
     phobos = {
       name: "Phobos",
@@ -129,10 +130,32 @@ $(function() {
     48 // pluto (yes pluto is a dwarf planet, but they're fun)
   ]
 
-  $('.takeQuiz').on('click', e => {
+  // clear inputs on load
+  $('form').trigger("reset");
+
+  // Take Me There button on header smooth scrolls to first question
+  $('.take-quiz').on('click', e => {
     e.preventDefault();
     $('html, body').animate({
       scrollTop: $('#temperature-input').offset().top    
+    }, 1000);
+  });
+  $('.to-gravity').on('click', e => {
+    e.preventDefault();
+    $('html, body').animate({
+      scrollTop: $('#gravity-input').offset().top
+    }, 1000);
+  });
+  $('.to-travel').on('click', e => {
+    e.preventDefault();
+    $('html, body').animate({
+      scrollTop: $('#travel-input').offset().top
+    }, 1000);
+  });
+  $('.get-results').on('click', e => {
+    e.preventDefault();
+    $('html, body').animate({
+      scrollTop: $('#planet-output').offset().top
     }, 1000);
   });
 
@@ -163,7 +186,7 @@ $(function() {
     } 
   })
 
-  $('.get-results-button').on('click', (e) => {
+  $('.get-results').on('click', (e) => {
     e.preventDefault();
 
     let desiredTemp = $('input[name=temperature]:checked').val();
@@ -182,7 +205,7 @@ $(function() {
       desiredTemp = 3;
     } else if (desiredTemp === 'cold') {
       desiredTemp = 2;
-    } else if (desiredTemp === 'freezing') {
+    } else if (desiredTemp === 'frigid') {
       desiredTemp = 1;
     }
     let results = [];
@@ -354,10 +377,16 @@ $(function() {
     })
     chosen = planets[chosen];
     const displayItem = `
-      <h2>You should travel here:</h2>
-      <h3>${chosen.name}</h3>
+      <h2>Dreamy?</h2>
+      <div class="displayContainer">
+          <div class="textContainer">
+            <h3>Name: ${chosen.name}</h3>
+            <p>Description: ${chosen.description}</p>
+          </div>
+          <img src="./assets/photos/${chosen.name}.jpg" alt="Photo of ${chosen.name}">
+        </div>
     `
-    $('.display-results').html(displayItem);
+    $('.planet-output .wrapper').html(displayItem);
   
     // console.log(travelArr);
     // console.log(planets);

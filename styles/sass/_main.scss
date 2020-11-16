@@ -7,77 +7,159 @@ main {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      align-items: center;
 
       h2 {
-        font-size: 4rem;
+        font-size: 6rem;
         margin-bottom: 25px;
+        text-align: center;
       }
-      form, img {
+      img {
         width: 50%;
       }
+      form {
+        width: 40%;
+        margin-left: auto;
+      }
+    }
+
+  }
+  .temperature-input form {
+    display: flex; 
+    flex-wrap: wrap;
+    
+    a {
+      margin-top: 50px
     }
   }
   .temperature-input, .travel-input {
     background-color: $text-on-dark;
     color: $text-on-light;
+
+    a {
+      text-decoration: none;
+      margin-top: 125px;
+      padding: 15px 30px;
+      background-color: $main-accent;
+      border: 2px solid $main-accent;
+      color: $background;
+      font-size: 3rem;
+      border-radius: 4px;
+      box-shadow: 0px 17px 10px -10px rgba(0,0,0,0.4);
+
+      &:hover {
+        background-color: $text-on-dark;
+      }
+    }
   }
-  .travel-input .wrapper form {
-    width: 90%;
-    margin-top: 150px;
-    position: relative;
+  .gravity-input {
+    a {
+      text-decoration: none;
+      margin-top: 50px;
+      padding: 15px 30px;
+      border: 2px solid $main-accent;
+      color: $accent-text;
+      font-size: 2.4rem;
+      border-radius: 4px;
 
-    .rangePlanet {
-      height: 64px;
-      width: 64px;
-      margin-bottom: 40px;
-      // background-color: goldenrod;
-      display: inline-block;
-      position: absolute;
-      top: -100px;
-      opacity: 0.2;
+      &:hover {
+        border-color: $accent-text;
+        background-color: $main-accent;
+        color: black;
+      }
     }
+    form {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .wrapper h2 {
+      margin-bottom: 30px;
+    }
+  }
+  .travel-input .wrapper {
+    padding-bottom: 32px;
 
-    .vis {
-      opacity: 1;
-    }
+    form {
+      width: 90%;
+      margin-top: 150px;
+      position: relative;
 
-    .p1 {
-      left: -80px;
-      background-image: url('../assets/planet-earth.png');
-      top: -32px;
+      .rangePlanet {
+        height: 64px;
+        width: 64px;
+        display: inline-block;
+        position: absolute;
+        top: -100px;
+        opacity: 0.2;
+      }
+      .vis {
+        opacity: 1;
+      }
+      .p1 {
+        left: -80px;
+        background-image: url('../assets/planet-earth.png');
+        top: -32px;
+      }
+      .p2 {
+        left: 1.04%;
+        background-image: url('../assets/venus.png');
+      }
+      .p3 {
+        left: 1.04%;
+        display: none;
+      }
+      .p4 {
+        left: 4.16%;
+        background-image: url('../assets/mars.png');
+        top: 50px;
+      }
+      .p5 {
+        left: 12.5%;
+        background-image: url('../assets/jupiter.png');
+      }
+      .p6 {
+        left: 25%;
+        background-image: url('../assets/saturn.png');
+      }
+      .p7 {
+        left: 52.08%;
+        background-image: url('../assets/uranus.png');
+      }
+      .p8 {
+        left: calc(84.375% - 64px);
+        background-image: url('../assets/neptune.png');
+      }
+      .p9 {
+        left: calc(100% - 64px);
+        background-image: url('../assets/pluto.png');
+      }
     }
-    .p2 {
-      left: 1.04%;
-      background-image: url('../assets/venus.png');
+  }
+
+  .planet-output {
+    align-items: flex-start;
+
+    h2 {
+      margin: 50px 0;
     }
-    .p3 {
-      left: 1.04%;
-      display: none;
-    }
-    .p4 {
-      left: 4.16%;
-      background-image: url('../assets/mars.png');
-      top: 50px;
-    }
-    .p5 {
-      left: 12.5%;
-      background-image: url('../assets/jupiter.png');
-    }
-    .p6 {
-      left: 25%;
-      background-image: url('../assets/saturn.png');
-    }
-    .p7 {
-      left: 52.08%;
-      background-image: url('../assets/uranus.png');
-    }
-    .p8 {
-      left: calc(84.375% - 64px);
-      background-image: url('../assets/neptune.png');
-    }
-    .p9 {
-      left: calc(100% - 64px);
-      background-image: url('../assets/pluto.png');
+    .displayContainer {
+      display: flex;
+      justify-content: space-between;
+      
+      .textContainer {
+        width: 40%;
+
+        h3 {
+          font-size: 4rem;
+          margin-bottom: 20px;
+        }
+        p {
+          font-size: 3rem;
+        }
+      }
+      .imgContainer {
+        width: 60%;
+      }
     }
   }
 }

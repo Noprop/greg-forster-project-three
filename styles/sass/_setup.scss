@@ -19,6 +19,7 @@ body {
   font-family: 'Trispace', sans-serif;
   background-color: $background;
   color: $text-on-dark;
+  line-height: 1.4;
 }
 header, section {
   min-height: 100vh;
@@ -28,7 +29,6 @@ img {
   height: auto;
   display: block;
 }
-
 fieldset {
   border: 0;
 }

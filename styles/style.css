@@ -248,6 +248,7 @@ body {
   font-family: 'Trispace', sans-serif;
   background-color: #0b0c10;
   color: #eeeeee;
+  line-height: 1.4;
 }
 
 header, section {
@@ -338,7 +339,7 @@ main section .wrapper input[type=range]::-ms-track {
 }
 
 main .wrapper .container {
-  font-size: 2.4rem;
+  font-size: 3rem;
   display: block;
   position: relative;
   padding-left: 35px;
@@ -394,10 +395,11 @@ header h1 {
   font-size: 12rem;
   margin: 0;
   color: #66fcf1;
+  line-height: 1;
 }
 
 header h2 {
-  font-size: 3rem;
+  font-size: 3.6rem;
   max-width: 60%;
   margin: 40px auto 65px auto;
 }
@@ -408,7 +410,7 @@ header a {
   padding: 15px 30px;
   border: 2px solid #45a29e;
   color: #c5c6c7;
-  font-size: 2rem;
+  font-size: 2.4rem;
   border-radius: 4px;
 }
 
@@ -436,20 +438,90 @@ main section .wrapper {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 main section .wrapper h2 {
-  font-size: 4rem;
+  font-size: 6rem;
   margin-bottom: 25px;
+  text-align: center;
 }
 
-main section .wrapper form, main section .wrapper img {
+main section .wrapper img {
   width: 50%;
+}
+
+main section .wrapper form {
+  width: 40%;
+  margin-left: auto;
+}
+
+main .temperature-input form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+main .temperature-input form a {
+  margin-top: 50px;
 }
 
 main .temperature-input, main .travel-input {
   background-color: #eeeeee;
   color: #1f2833;
+}
+
+main .temperature-input a, main .travel-input a {
+  text-decoration: none;
+  margin-top: 125px;
+  padding: 15px 30px;
+  background-color: #45a29e;
+  border: 2px solid #45a29e;
+  color: #0b0c10;
+  font-size: 3rem;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 17px 10px -10px rgba(0, 0, 0, 0.4);
+          box-shadow: 0px 17px 10px -10px rgba(0, 0, 0, 0.4);
+}
+
+main .temperature-input a:hover, main .travel-input a:hover {
+  background-color: #eeeeee;
+}
+
+main .gravity-input a {
+  text-decoration: none;
+  margin-top: 50px;
+  padding: 15px 30px;
+  border: 2px solid #45a29e;
+  color: #c5c6c7;
+  font-size: 2.4rem;
+  border-radius: 4px;
+}
+
+main .gravity-input a:hover {
+  border-color: #c5c6c7;
+  background-color: #45a29e;
+  color: black;
+}
+
+main .gravity-input form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+main .gravity-input .wrapper h2 {
+  margin-bottom: 30px;
+}
+
+main .travel-input .wrapper {
+  padding-bottom: 32px;
 }
 
 main .travel-input .wrapper form {
@@ -461,7 +533,6 @@ main .travel-input .wrapper form {
 main .travel-input .wrapper form .rangePlanet {
   height: 64px;
   width: 64px;
-  margin-bottom: 40px;
   display: inline-block;
   position: absolute;
   top: -100px;
@@ -517,4 +588,40 @@ main .travel-input .wrapper form .p8 {
 main .travel-input .wrapper form .p9 {
   left: calc(100% - 64px);
   background-image: url("../assets/pluto.png");
+}
+
+main .planet-output {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+main .planet-output h2 {
+  margin: 50px 0;
+}
+
+main .planet-output .displayContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main .planet-output .displayContainer .textContainer {
+  width: 40%;
+}
+
+main .planet-output .displayContainer .textContainer h3 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+main .planet-output .displayContainer .textContainer p {
+  font-size: 3rem;
+}
+
+main .planet-output .displayContainer .imgContainer {
+  width: 60%;
 }

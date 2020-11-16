@@ -12,7 +12,7 @@
     <div class="wrapper">
       <h1>Solar Stay</h1>
       <h2>Ever thought of travelling off world? Try our quiz to find your dream planet!</h2>
-      <a href="" class="takeQuiz">Take Me There</a>
+      <a href="" class="take-quiz">Take Me There</a>
     </div>
   </header>
   <main>
@@ -38,16 +38,17 @@
               <input type="radio" name="temperature" value="cold" id="temp-cold">
               <span class="newRadio"></span>
             </label>
-            <label class="container">Freezing Cold
-              <input type="radio" name="temperature" value="freezing" id="temp-freezing">
+            <label class="container">Frigid
+              <input type="radio" name="temperature" value="frigid" id="temp-frigid">
               <span class="newRadio"></span>
             </label>
           </fieldset>
+          <a href="" class="to-gravity">Next Question</a>
         </form>
         <img src="assets/thermometer.png" alt="Thermometer with the sun in the background">
       </div>
     </section>
-    <section class="gravity-input">
+    <section class="gravity-input" id="gravity-input">
       <div class="wrapper">
         <h2>How much would you like to weigh?</h2>
         <img src="./assets/gravity.png" alt="Depiction of apple falling">
@@ -75,10 +76,11 @@
               <span class="newRadio"></span>
             </label>
           </fieldset>
+          <a href="" class="to-travel">Next Question</a>
         </form>
       </div>
     </section>
-    <section class="travel-input">
+    <section class="travel-input" id="travel-input">
       <div class="wrapper">
         <h2>How far are you willing to travel?</h2>
         <form action="">
@@ -94,16 +96,12 @@
           <label for="distance-finder" class="sr-only">Slide for distance</label>
           <input type="range" min="1" max="48" value="1" class="slider" id="distance-finder" name="distance">
         </form>
+        <a href="" class="get-results">Calculate Planet (or Moon!)</a>
       </div>
     </section>
-    <section class="planet-output">
+    <section class="planet-output" id="planet-output">
       <div class="wrapper">
-        <section class="get-results">
-          <a href="" class="get-results-button">Find Your Destination</a>
-        </section>
-        <section class="display-results">
-          <h2>You should travel here:</h2>
-        </section>
+        <h2>Dreamy?</h2>
       </div>
     </section>
   </main>
