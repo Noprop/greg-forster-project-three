@@ -15,15 +15,80 @@ main {
       form, img {
         width: 50%;
       }
-      input[type="range"] {
-        width: 90%;
-        
+      input[type=range] {
+        // with the help of this! https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
+        // below section is to create invisible or unstyled range inputs in all browsers
+        -webkit-appearance: none;
+        width: 100%;
+        background: transparent;
+
+        &::-webkit-slider-thumb {
+          -webkit-appearance: none;
+        }  
+        &:focus {
+          outline: none;
+        }
+        &::-ms-track {
+          width: 100%;
+          cursor: pointer;
+
+          background: transparent;
+          border-color: transparent;
+          color: transparent;
+        }
+
+        // below section is to create spaceship thumb (that's the slidy thing!)
+        &::-webkit-slider-thumb {
+          background: url('../assets/spaceship.png');
+          height: 64px;
+          width: 64px;
+          cursor: pointer;
+        }
+        &::-moz-range-thumb {
+          background: url('../assets/spaceship.png');
+          height: 64px;
+          width: 64px;
+          border: 0;
+          cursor: pointer;
+        }
+        &::-ms-thumb {
+          background: url('../assets/spaceship.png');
+          height: 64px;
+          width: 64px;
+          cursor: pointer;
+        }
+
+        // styling the track 
+        &::-webkit-slider-runnable-track {
+          width: calc(100% - 64px);
+          height: 20px;
+          cursor: pointer;
+          background-color: $main-accent;
+        }
+        &::-moz-range-track {
+          width: calc(100% - 64px);
+          height: 12px;
+          border-radius: 8px;
+          cursor: pointer;
+          background-color: $main-accent;
+          border: 3px solid $text-on-light;
+        }
+        &::-ms-track {
+          width: calc(100% - 64px);
+          height: 20px;
+          cursor: pointer;
+          background-color: $main-accent;
+        }
       }
     }
   }
   .temperature-input, .travel-input {
     background-color: $text-on-dark;
     color: $text-on-light;
+  }
+  .travel-input .wrapper form {
+    width: 90%;
+    margin-top: 50px;
   }
 }
 

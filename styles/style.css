@@ -337,13 +337,81 @@ main section .wrapper form, main section .wrapper img {
   width: 50%;
 }
 
-main section .wrapper input[type="range"] {
-  width: 90%;
+main section .wrapper input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+main section .wrapper input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+main section .wrapper input[type=range]:focus {
+  outline: none;
+}
+
+main section .wrapper input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+main section .wrapper input[type=range]::-webkit-slider-thumb {
+  background: url("../assets/spaceship.png");
+  height: 64px;
+  width: 64px;
+  cursor: pointer;
+}
+
+main section .wrapper input[type=range]::-moz-range-thumb {
+  background: url("../assets/spaceship.png");
+  height: 64px;
+  width: 64px;
+  border: 0;
+  cursor: pointer;
+}
+
+main section .wrapper input[type=range]::-ms-thumb {
+  background: url("../assets/spaceship.png");
+  height: 64px;
+  width: 64px;
+  cursor: pointer;
+}
+
+main section .wrapper input[type=range]::-webkit-slider-runnable-track {
+  width: calc(100% - 64px);
+  height: 20px;
+  cursor: pointer;
+  background-color: #45a29e;
+}
+
+main section .wrapper input[type=range]::-moz-range-track {
+  width: calc(100% - 64px);
+  height: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #45a29e;
+  border: 3px solid #1f2833;
+}
+
+main section .wrapper input[type=range]::-ms-track {
+  width: calc(100% - 64px);
+  height: 20px;
+  cursor: pointer;
+  background-color: #45a29e;
 }
 
 main .temperature-input, main .travel-input {
   background-color: #eeeeee;
   color: #1f2833;
+}
+
+main .travel-input .wrapper form {
+  width: 90%;
+  margin-top: 50px;
 }
 
 main .wrapper .container {
