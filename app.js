@@ -9,7 +9,7 @@ $(function() {
     },
     venus = {
       name: "Venus",
-      description: "Venus is the second planet from the Sun. Cities floating on Venus's clouds is currently undergoing R&D.",
+      description: "Venus is the second planet from the Sun. The process of creating floating cities on Venus's clouds is currently undergoing R&D.",
       temp: 5,
       gravity: 8.87,
       travelDistance: 0.042
@@ -133,7 +133,7 @@ $(function() {
   // clear inputs on load
   $('form').trigger("reset");
 
-  // Take Me There button on header smooth scrolls to first question
+  // Buttons to scroll to different sections
   $('.take-quiz').on('click', e => {
     e.preventDefault();
     $('html, body').animate({
@@ -161,6 +161,7 @@ $(function() {
 
   let n = 0;
   $('input[type=range]').on("input", e => { // I use a lot of chaining if statements to ensure it's not a waste of resources (aka brute forcing), there are likely more efficient methods  
+  // This was the most obvious method but it only works if the user is slowly moving and specifically holding the spaceship. If the user just selects a part of the range slider it breaks, this can be fixed by using a more efficient method but this was one of the last things I did unfortunately
     n = e.target.value;
     if (n <= 6) {
       if (n == 2) { // venus, merc
@@ -171,10 +172,10 @@ $(function() {
       } else if (n == 6) { // jupiter
         $('.p5').toggleClass('vis');
       }
-    } else if (n <= 25) {
+    } else if (n <= 28) {
       if (n == 12) { // saturn
         $('.p6').toggleClass('vis');
-      } else if (n == 25) { // uranus
+      } else if (n == 28) { // uranus
         $('.p7').toggleClass('vis');
       }
     } else if (n <= 48) {
@@ -192,10 +193,6 @@ $(function() {
     let desiredTemp = $('input[name=temperature]:checked').val();
     const gravity = $('input[name=gravity]:checked').val();
     const distance = ($('input[name=distance]').val()) * 2;
-
-    // console.log('temp: ' + desiredTemp);
-    // console.log('weight: ' + gravity);
-    // console.log('distance: ' + distance);
 
     if (desiredTemp === 'hot') {
       desiredTemp = 5;
@@ -222,16 +219,13 @@ $(function() {
       // find inverse to calculate score
       tempScore = 5 - tempScore;
       results.push(tempScore);
-      // console.log(`Name: ${item.name}, scoreb4grav: ${tempScore}`)
     })
 
     // calculate gravity score
     if (gravity === "bouncy") {
       planets.forEach((item, index) => {
         if (item.gravity < 0.5) { // less than 0.5 is five points
-          // console.log(`Name: ${item.name}, scoreb4grav: ${results[index]}`)
           results[index] += 5;
-          // console.log(item.name);
         } else if (item.gravity < 2) { // less than 2 is three points
           results[index] += 3;
         } else if (item.gravity < 5) { // less than 5 is one point
@@ -329,52 +323,51 @@ $(function() {
           targetAcquired = i;
         }
         results[travelArr[i].index] += 5; 
-        // travelArr[i].tempScore = 5;
-      } else if (distance < travelArr[i].travel) { // as soon as user's input is smaller than the indexed
+      } else if (distance < travelArr[i].travel) { // as soon as user's input is smaller than the current planet we're looking at
         if (targetAcquired === 0) { // run this if we have not yet found a planet
           results[travelArr[i - 1].index] += 5;
-          // travelArr[i - 1].tempScore = 5;
           for (let k = i - 1; k >= 0; k--) { // this is specifically made for moons
             if (travelArr[k].travel === travelArr[k - 1].travel) {
               results[travelArr[k - 1].index] += 5;
-              // travelArr[k - 1].tempScore = 5;
             } else {
               targetAcquired = k;
               break;
             }
           }
         }
-        for (let l = i; l <= travelArr.length; l++) {
+        for (let l = i; l <= travelArr.length; l++) { 
           if (travelArr[l + 1] && (travelArr[l].travel === travelArr[l + 1].travel)) {
             results[travelArr[l + 1].index] += 2;
-            // travelArr[l + 1].tempScore = 2;
           } else {
             break;
           }
         }
         results[travelArr[i].index] += 2;
-        // travelArr[i].tempScore = 2;
         break;
       }
     };
-
+    // planet just before the target gets 4 points instead of 2
     results[travelArr[targetAcquired - 1].index] += 4;
-    // travelArr[targetAcquired - 1].tempScore = 4;
 
+    // add 3 points to all planets/moons within the range
     for (let j = targetAcquired - 1; j >= 0; j--) {
       results[travelArr[j].index] += 3;
-      // travelArr[j].tempScore = 3;
     }
 
     // display results 
     let best = 0;
+    let secondBest = 0;
     let chosen = 0;
     results.forEach((item, index) => {
       if (item > best) {
+        secondBest = chosen;
         best = item;
         chosen = index;
       }
     })
+    if((Math.random()) > 0.5) {
+      chosen = secondBest;
+    }
     chosen = planets[chosen];
     const displayItem = `
       <h2>Dreamy?</h2>
@@ -387,9 +380,5 @@ $(function() {
         </div>
     `
     $('.planet-output .wrapper').html(displayItem);
-  
-    // console.log(travelArr);
-    // console.log(planets);
-    // console.log(results);
   })
 })

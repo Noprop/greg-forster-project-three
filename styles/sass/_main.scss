@@ -9,10 +9,26 @@ main {
       justify-content: center;
       align-items: center;
 
+      @media(max-width: 480px) {
+        flex-wrap: none;
+        flex-direction: column;
+        align-items: center;
+
+        a {
+          width: 80%;
+          text-align: center;
+          margin-top: 10px;
+        }
+      } 
+
       h2 {
-        font-size: 6rem;
         margin-bottom: 25px;
         text-align: center;
+
+        @media(max-width: 480px) {
+          text-align: left;
+          margin-top: 20px;
+        }
       }
       img {
         width: 50%;
@@ -20,16 +36,39 @@ main {
       form {
         width: 40%;
         margin-left: auto;
+
+        @media(max-width: 480px) {
+          width: 100%;
+          margin-left: 0;
+        }
       }
     }
 
   }
-  .temperature-input form {
-    display: flex; 
-    flex-wrap: wrap;
-    
-    a {
-      margin-top: 50px
+  .temperature-input {
+    @media(max-width: 480px) {
+      img {
+        margin: 35px 0;
+      }
+    }
+
+    form {
+      display: flex; 
+      flex-wrap: wrap;
+
+      @media(max-width: 480px) {
+        flex-wrap: none;
+        flex-direction: column;
+      }
+      
+      a {
+        margin-top: 50px;
+
+        @media(max-width: 480px) {
+          margin-top: 20px;
+          align-self: center;
+        }
+      }
     }
   }
   .temperature-input, .travel-input {
@@ -43,7 +82,6 @@ main {
       background-color: $main-accent;
       border: 2px solid $main-accent;
       color: $background;
-      font-size: 3rem;
       border-radius: 4px;
       box-shadow: 0px 17px 10px -10px rgba(0,0,0,0.4);
 
@@ -53,88 +91,121 @@ main {
     }
   }
   .gravity-input {
-    a {
-      text-decoration: none;
-      margin-top: 50px;
-      padding: 15px 30px;
-      border: 2px solid $main-accent;
-      color: $accent-text;
-      font-size: 2.4rem;
-      border-radius: 4px;
-
-      &:hover {
-        border-color: $accent-text;
-        background-color: $main-accent;
-        color: black;
-      }
-    }
     form {
       display: flex;
       flex-wrap: wrap;
+
+      @media(max-width: 480px) {
+        flex-wrap: none;
+        flex-direction: column;
+      }
+
+      a {
+        text-decoration: none;
+        margin-top: 50px;
+        padding: 15px 30px;
+        border: 2px solid $main-accent;
+        color: $accent-text;
+        border-radius: 4px;
+
+        @media(max-width: 480px) {
+          margin: 20px 0 50px 0;
+          align-self: center;
+        }
+
+        &:hover {
+          border-color: $accent-text;
+          background-color: $main-accent;
+          color: black;
+        }
+      }
     }
-    .wrapper h2 {
-      margin-bottom: 30px;
+    .wrapper {
+      h2 {
+        margin-bottom: 30px;
+      }
+      @media(max-width: 480px) {
+        img {
+          margin-bottom: 30px;
+        }
+    } 
     }
   }
-  .travel-input .wrapper {
-    padding-bottom: 32px;
+  .travel-input {
+    .wrapper {
+      padding-bottom: 32px;
 
-    form {
-      width: 90%;
-      margin-top: 150px;
-      position: relative;
+      form {
+        width: 90%;
+        margin-top: 150px;
+        position: relative;
 
-      .rangePlanet {
-        height: 64px;
-        width: 64px;
-        display: inline-block;
-        position: absolute;
-        top: -100px;
-        opacity: 0.2;
+        .rangePlanet {
+          height: 64px;
+          width: 64px;
+          display: inline-block;
+          position: absolute;
+          top: -100px;
+          opacity: 0.2;
+        }
+        .vis {
+          opacity: 1;
+        }
+        .p1 {
+          left: -80px;
+          background-image: url('../assets/planet-earth.png');
+          top: -32px;
+        }
+        .p2 {
+          left: 1.04%;
+          background-image: url('../assets/venus.png');
+        }
+        .p3 {
+          left: 1.04%;
+          display: none;
+        }
+        .p4 {
+          left: 4.16%;
+          background-image: url('../assets/mars.png');
+          top: 50px;
+        }
+        .p5 {
+          left: 12.5%;
+          background-image: url('../assets/jupiter.png');
+        }
+        .p6 {
+          left: 25%;
+          background-image: url('../assets/saturn.png');
+        }
+        .p7 {
+          left: calc(52.08% - 16px);
+          background-image: url('../assets/uranus.png');
+        }
+        .p8 {
+          left: calc(84.375% - 64px);
+          background-image: url('../assets/neptune.png');
+        }
+        .p9 {
+          left: calc(100% - 64px);
+          background-image: url('../assets/pluto.png');
+        }
+        @media(max-width: 480px) {
+          .p1,
+          .p5 {
+            display: none;
+          }
+          .p8 {
+            top: 50px;
+          }
+        }
       }
-      .vis {
-        opacity: 1;
-      }
-      .p1 {
-        left: -80px;
-        background-image: url('../assets/planet-earth.png');
-        top: -32px;
-      }
-      .p2 {
-        left: 1.04%;
-        background-image: url('../assets/venus.png');
-      }
-      .p3 {
-        left: 1.04%;
-        display: none;
-      }
-      .p4 {
-        left: 4.16%;
-        background-image: url('../assets/mars.png');
-        top: 50px;
-      }
-      .p5 {
-        left: 12.5%;
-        background-image: url('../assets/jupiter.png');
-      }
-      .p6 {
-        left: 25%;
-        background-image: url('../assets/saturn.png');
-      }
-      .p7 {
-        left: 52.08%;
-        background-image: url('../assets/uranus.png');
-      }
-      .p8 {
-        left: calc(84.375% - 64px);
-        background-image: url('../assets/neptune.png');
-      }
-      .p9 {
-        left: calc(100% - 64px);
-        background-image: url('../assets/pluto.png');
+      @media(max-width: 480px) {
+        a {
+          margin-top: 150px;
+        }
       }
     }
-  }
+  } 
 
   .planet-output {
     align-items: flex-start;
@@ -145,6 +216,11 @@ main {
     .displayContainer {
       display: flex;
       justify-content: space-between;
+
+      @media(max-width: 480px) {
+        flex-direction: column;
+        align-items: center;
+      }
       
       .textContainer {
         width: 40%;
@@ -156,9 +232,23 @@ main {
         p {
           font-size: 3rem;
         }
+        @media(max-width: 480px) {
+          width: 100%;
+          h3 {
+            font-size: 2.8rem;
+          }
+          p {
+            font-size: 2.4rem;
+          }
+        }
       }
-      .imgContainer {
-        width: 60%;
+      img {
+        width: 55%;
+
+        @media(max-width: 480px) {
+          width: 100%;
+          margin-top: 30px;
+        }
       }
     }
   }

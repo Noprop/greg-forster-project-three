@@ -271,6 +271,26 @@ fieldset {
   margin: 0 auto;
 }
 
+a {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 6rem;
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 3.6rem;
+  }
+  a {
+    font-size: 2.2rem;
+  }
+  .wrapper {
+    width: 95%;
+  }
+}
+
 main section .wrapper input[type=range] {
   -webkit-appearance: none;
   width: 100%;
@@ -317,9 +337,11 @@ main section .wrapper input[type=range]::-ms-thumb {
 
 main section .wrapper input[type=range]::-webkit-slider-runnable-track {
   width: calc(100% - 64px);
-  height: 20px;
+  height: 12px;
+  border-radius: 8px;
   cursor: pointer;
   background-color: #45a29e;
+  border: 3px solid #1f2833;
 }
 
 main section .wrapper input[type=range]::-moz-range-track {
@@ -333,9 +355,11 @@ main section .wrapper input[type=range]::-moz-range-track {
 
 main section .wrapper input[type=range]::-ms-track {
   width: calc(100% - 64px);
-  height: 20px;
+  height: 12px;
+  border-radius: 8px;
   cursor: pointer;
   background-color: #45a29e;
+  border: 3px solid #1f2833;
 }
 
 main .wrapper .container {
@@ -345,6 +369,12 @@ main .wrapper .container {
   padding-left: 35px;
   margin-bottom: 12px;
   cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  main .wrapper .container {
+    font-size: 2.4rem;
+  }
 }
 
 main .wrapper .container input {
@@ -404,13 +434,25 @@ header h2 {
   margin: 40px auto 65px auto;
 }
 
+@media (max-width: 480px) {
+  header h2 {
+    font-size: 2.8rem;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 9rem;
+  }
+}
+
 header a {
   text-decoration: none;
   margin-top: 100px;
   padding: 15px 30px;
   border: 2px solid #45a29e;
   color: #c5c6c7;
-  font-size: 2.4rem;
   border-radius: 4px;
 }
 
@@ -443,10 +485,35 @@ main section .wrapper {
           align-items: center;
 }
 
+@media (max-width: 480px) {
+  main section .wrapper {
+    -ms-flex-wrap: none;
+        flex-wrap: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  main section .wrapper a {
+    width: 80%;
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
 main section .wrapper h2 {
-  font-size: 6rem;
   margin-bottom: 25px;
   text-align: center;
+}
+
+@media (max-width: 480px) {
+  main section .wrapper h2 {
+    text-align: left;
+    margin-top: 20px;
+  }
 }
 
 main section .wrapper img {
@@ -458,6 +525,19 @@ main section .wrapper form {
   margin-left: auto;
 }
 
+@media (max-width: 480px) {
+  main section .wrapper form {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  main .temperature-input img {
+    margin: 35px 0;
+  }
+}
+
 main .temperature-input form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -466,8 +546,28 @@ main .temperature-input form {
       flex-wrap: wrap;
 }
 
+@media (max-width: 480px) {
+  main .temperature-input form {
+    -ms-flex-wrap: none;
+        flex-wrap: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 main .temperature-input form a {
   margin-top: 50px;
+}
+
+@media (max-width: 480px) {
+  main .temperature-input form a {
+    margin-top: 20px;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
 }
 
 main .temperature-input, main .travel-input {
@@ -482,7 +582,6 @@ main .temperature-input a, main .travel-input a {
   background-color: #45a29e;
   border: 2px solid #45a29e;
   color: #0b0c10;
-  font-size: 3rem;
   border-radius: 4px;
   -webkit-box-shadow: 0px 17px 10px -10px rgba(0, 0, 0, 0.4);
           box-shadow: 0px 17px 10px -10px rgba(0, 0, 0, 0.4);
@@ -490,22 +589,6 @@ main .temperature-input a, main .travel-input a {
 
 main .temperature-input a:hover, main .travel-input a:hover {
   background-color: #eeeeee;
-}
-
-main .gravity-input a {
-  text-decoration: none;
-  margin-top: 50px;
-  padding: 15px 30px;
-  border: 2px solid #45a29e;
-  color: #c5c6c7;
-  font-size: 2.4rem;
-  border-radius: 4px;
-}
-
-main .gravity-input a:hover {
-  border-color: #c5c6c7;
-  background-color: #45a29e;
-  color: black;
 }
 
 main .gravity-input form {
@@ -516,8 +599,49 @@ main .gravity-input form {
       flex-wrap: wrap;
 }
 
+@media (max-width: 480px) {
+  main .gravity-input form {
+    -ms-flex-wrap: none;
+        flex-wrap: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+main .gravity-input form a {
+  text-decoration: none;
+  margin-top: 50px;
+  padding: 15px 30px;
+  border: 2px solid #45a29e;
+  color: #c5c6c7;
+  border-radius: 4px;
+}
+
+@media (max-width: 480px) {
+  main .gravity-input form a {
+    margin: 20px 0 50px 0;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+}
+
+main .gravity-input form a:hover {
+  border-color: #c5c6c7;
+  background-color: #45a29e;
+  color: black;
+}
+
 main .gravity-input .wrapper h2 {
   margin-bottom: 30px;
+}
+
+@media (max-width: 480px) {
+  main .gravity-input .wrapper img {
+    margin-bottom: 30px;
+  }
 }
 
 main .travel-input .wrapper {
@@ -576,7 +700,7 @@ main .travel-input .wrapper form .p6 {
 }
 
 main .travel-input .wrapper form .p7 {
-  left: 52.08%;
+  left: calc(52.08% - 16px);
   background-image: url("../assets/uranus.png");
 }
 
@@ -588,6 +712,22 @@ main .travel-input .wrapper form .p8 {
 main .travel-input .wrapper form .p9 {
   left: calc(100% - 64px);
   background-image: url("../assets/pluto.png");
+}
+
+@media (max-width: 480px) {
+  main .travel-input .wrapper form .p1,
+  main .travel-input .wrapper form .p5 {
+    display: none;
+  }
+  main .travel-input .wrapper form .p8 {
+    top: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  main .travel-input .wrapper a {
+    margin-top: 150px;
+  }
 }
 
 main .planet-output {
@@ -609,6 +749,18 @@ main .planet-output .displayContainer {
           justify-content: space-between;
 }
 
+@media (max-width: 480px) {
+  main .planet-output .displayContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 main .planet-output .displayContainer .textContainer {
   width: 40%;
 }
@@ -622,6 +774,25 @@ main .planet-output .displayContainer .textContainer p {
   font-size: 3rem;
 }
 
-main .planet-output .displayContainer .imgContainer {
-  width: 60%;
+@media (max-width: 480px) {
+  main .planet-output .displayContainer .textContainer {
+    width: 100%;
+  }
+  main .planet-output .displayContainer .textContainer h3 {
+    font-size: 2.8rem;
+  }
+  main .planet-output .displayContainer .textContainer p {
+    font-size: 2.4rem;
+  }
+}
+
+main .planet-output .displayContainer img {
+  width: 55%;
+}
+
+@media (max-width: 480px) {
+  main .planet-output .displayContainer img {
+    width: 100%;
+    margin-top: 30px;
+  }
 }

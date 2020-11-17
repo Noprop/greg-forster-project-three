@@ -77,6 +77,10 @@ main .wrapper .container {
   padding-left: 35px;
   margin-bottom: 12px;
   cursor: pointer;
+
+  @media(max-width: 480px) {
+    font-size: 2.4rem;
+  }
   
   // hide the browser's default radio button
   input {
