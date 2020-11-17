@@ -816,3 +816,11 @@ footer {
   font-size: 2rem;
   height: 40px;
 }
+
+@media (max-width: 480px) {
+  footer {
+    height: 60px;
+    text-align: center;
+    font-size: 1.8rem;
+  }
+}

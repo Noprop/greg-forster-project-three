@@ -6,4 +6,10 @@ footer {
   color: $text-on-light;
   font-size: 2rem;
   height: 40px;
+
+  @media(max-width: 480px) {
+    height: 60px;
+    text-align: center;
+    font-size: 1.8rem;
+  }
 }
