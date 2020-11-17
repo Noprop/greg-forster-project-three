@@ -25,7 +25,9 @@ main section .wrapper input[type=range] {
     background: url('../assets/spaceship.png');
     height: 64px;
     width: 64px;
+    border: 0;
     cursor: pointer;
+    margin-top: -29px;
   }
   &::-moz-range-thumb {
     background: url('../assets/spaceship.png');
@@ -35,20 +37,22 @@ main section .wrapper input[type=range] {
     cursor: pointer;
   }
   &::-ms-thumb {
+    margin-top: 0;
     background: url('../assets/spaceship.png');
     height: 64px;
     width: 64px;
+    border: 0;
     cursor: pointer;
   }
 
   // styling the track 
   &::-webkit-slider-runnable-track {
-    width: calc(100% - 64px);
+    width: calc(100% - 128px);
     height: 12px;
     border-radius: 8px;
     cursor: pointer;
     background-color: $main-accent;
-    border: 3px solid $text-on-light;
+    border: 2px solid $text-on-light;
   }
   &::-moz-range-track {
     width: calc(100% - 64px);
@@ -59,12 +63,12 @@ main section .wrapper input[type=range] {
     border: 3px solid $text-on-light;
   }
   &::-ms-track {
-    width: calc(100% - 64px);
+    width: calc(100% - 128px);
     height: 12px;
     border-radius: 8px;
     cursor: pointer;
     background-color: $main-accent;
-    border: 3px solid $text-on-light;
+    border: 2px solid $text-on-light;
   }
 }
 
