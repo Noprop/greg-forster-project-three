@@ -118,17 +118,6 @@ $(function() {
       travelDistance: 0.225
     }
   ]
-  const planetDisplay = [ // used for when user changes range input
-    0, // earth
-    0.5, // venus
-    0.5, // mercury
-    2, // mars
-    6, // jupiter
-    12, // saturn
-    25, // uranus
-    40.5, // neptune
-    48 // pluto (yes pluto is a dwarf planet, but they're fun)
-  ]
 
   // clear inputs on load
   $('form').trigger("reset");
@@ -159,30 +148,86 @@ $(function() {
     }, 1000);
   });
 
+  // const planetDisplay = [ // used for when user changes range input
+  //   0, // earth
+  //   0.5, // venus
+  //   0.5, // mercury
+  //   2, // mars
+  //   6, // jupiter
+  //   12, // saturn
+  //   25, // uranus
+  //   40.5, // neptune
+  //   48 // pluto (yes pluto is a dwarf planet, but they're fun)
+  // ]
+  const planetRange = [ // used for when user changes range input
+    $('.p2'), // venus
+    $('.p3'), // mercury
+    $('.p4'), // mars
+    $('.p5'), // jupiter
+    $('.p6'), // saturn
+    $('.p7'), // uranus
+    $('.p8'), // neptune
+    $('.p9') // pluto (yes pluto is a dwarf planet, but they're fun)
+  ]
+
   let n = 0;
   $('input[type=range]').on("input", e => { // I use a lot of chaining if statements to ensure it's not a waste of resources (aka brute forcing), there are likely more efficient methods  
   // This was the most obvious method but it only works if the user is slowly moving and specifically holding the spaceship. If the user just selects a part of the range slider it breaks, this can be fixed by using a more efficient method but this was one of the last things I did unfortunately
     n = e.target.value;
+    const checkPlanets = planetIndex => {
+      if (planetIndex === 1) {
+        planetRange.slice(2).forEach(planet => {
+          if (planet.hasClass('vis')) {
+            planet.toggleClass('vis');
+          }
+        });
+      } else if (planetIndex === 7) {
+        planetRange.slice(0, -1).forEach(planet => {
+          if (!planet.hasClass('vis')) {
+            planet.toggleClass('vis');
+          }
+        })
+      } else {
+        planetRange.slice(0, planetIndex - 1).forEach(planet => {
+          if (!planet.hasClass('vis')) {
+            planet.toggleClass('vis');
+          } 
+        })
+        planetRange.slice(planetIndex + 1, planetRange.length - 1).forEach(planet => {
+          if(planet.hasClass('vis')) {
+            planet.toggleClass('vis');
+          }
+        })
+      }
+      
+    }
     if (n <= 6) {
       if (n == 2) { // venus, merc
-        $('.p2').toggleClass('vis');
-        $('.p3').toggleClass('vis');
+        planetRange[0].toggleClass('vis');
+        planetRange[1].toggleClass('vis');
+        checkPlanets(1);
       } else if (n == 4) { // mars
-        $('.p4').toggleClass('vis');
+        planetRange[2].toggleClass('vis');
+        checkPlanets(2);
       } else if (n == 6) { // jupiter
-        $('.p5').toggleClass('vis');
+        planetRange[3].toggleClass('vis');
+        checkPlanets(3);
       }
     } else if (n <= 28) {
       if (n == 12) { // saturn
-        $('.p6').toggleClass('vis');
+        planetRange[4].toggleClass('vis');
+        checkPlanets(4);
       } else if (n == 28) { // uranus
-        $('.p7').toggleClass('vis');
+        planetRange[5].toggleClass('vis');
+        checkPlanets(5);
       }
     } else if (n <= 48) {
       if (n == 41) { // neptune
-        $('.p8').toggleClass('vis');
+        planetRange[6].toggleClass('vis');
+        checkPlanets(6);
       } else if (n == 47) { // pluto
-        $('.p9').toggleClass('vis');
+        planetRange[7].toggleClass('vis');
+        checkPlanets(7);
       }
     } 
   })
@@ -306,7 +351,6 @@ $(function() {
       }
     }
     travelArr.sort(compare);
-    // console.log(distance);
 
 
     // calculate travel score
